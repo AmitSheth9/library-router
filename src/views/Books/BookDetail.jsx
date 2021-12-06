@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Book from '../../components/book/Book'
 import { getBookById } from '../../services/books'
@@ -14,7 +14,14 @@ function BookDetail() {
 
   if (!book) return <h3>Loading book...</h3>
 
-  return <Book book={book} showDetail />
+  return (
+    <div>
+      <Book book={book} showDetail />
+      <Link to="/books">
+        <div>Back to the Book List</div>
+      </Link>
+    </div>
+  )
 }
 
 export default BookDetail
