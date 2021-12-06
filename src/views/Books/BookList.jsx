@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Book from '../../components/book/Book'
 import { getBooks } from '../../services/books'
 
@@ -18,9 +19,11 @@ function BookList() {
   return (
     <ul className="book-list" aria-label="book list">
       {books.map((book) => (
-        <li key={book.book_id}>
-          <Book book={book} />
-        </li>
+        <Link to={`/Booklist/${book.book_id}`} key={book.book_id}>
+          <li key={book.book_id}>
+            <Book book={book} />
+          </li>
+        </Link>
       ))}
     </ul>
   )
